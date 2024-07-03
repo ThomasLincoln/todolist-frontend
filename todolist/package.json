@@ -10,7 +10,8 @@
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
   },
   "husky": {
     "hooks": {
