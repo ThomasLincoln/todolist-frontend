@@ -5,6 +5,7 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
+    "allowJs": true,
     "lib": [
       "ES2020",
       "DOM",
@@ -29,6 +30,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/views/*.vue"
+    "src/views/*.vue",
+    "src/components/*.vue"
   ]
 }

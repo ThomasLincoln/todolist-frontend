@@ -1,37 +1,74 @@
 <template>
-  <div class="acesso-container">
-    <div class="area-cadastro">
-      <h1>Bem-vindo de Volta!</h1>
-      <button class="area-cadastro button">Cadastrar-se</button>
-      <p>novo por aqui?</p>
+  <div class="container">
+    <div class="left-block">
+      <h1 class="title">Bem-vindo de volta!</h1>
+      <Button />
+      <div class="subtext">
+        <p>novo por aqui?</p>
+      </div>
     </div>
-    <div class="area-login">
-      <h1>Acessar sua conta</h1>
+    <div class="right-block">
+      <h2 class="subtitle">Acessar sua conta</h2>
       <div class="input">
-        <p>Nome de accesso</p>
+        <label
+          for="login"
+          class="block mb-2 text-sm font-medium"
+          style="color: var(--terciary-color); margin-left: 1em"
+          >Nome de usuário</label
+        >
         <input
           type="text"
-          placeholder="seu nome de acesso"
-          class="login-input"
+          id="login"
+          v-model="loginValue"
+          placeholder="Digite seu nome de usuário"
+          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          style="
+            background: none;
+            border-color: var(--terciary-color);
+            width: 95%;
+          "
         />
       </div>
       <div class="input">
-        <p>Senha de accesso</p>
-        <input type="text" placeholder="sua senha" class="senha-input" />
+        <label
+          for="senha"
+          class="block mb-2 text-sm font-medium"
+          style="color: var(--terciary-color); margin-left: 1em"
+          >Senha</label
+        >
+        <input
+          type="password"
+          id="senha"
+          v-model="passwordValue"
+          placeholder="Digite sua senha"
+          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          style="
+            background: none;
+            border-color: var(--terciary-color);
+            width: 95%;
+          "
+        />
       </div>
-      <div class="subcontainer-flex">
-        <div>
-          <input type="checkbox" id="checkbox" />
-          <label for="checkbox">Lembre-se de mim</label>
+
+      <div class="flex">
+        <div class="flex items-center">
+          <input
+            checked
+            id="checked-checkbox"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="checked-checkbox"
+            class="ms-2 text-sm font-medium"
+            style="color: var(--dark-gray)"
+            >Lembrar-se de mim</label
+          >
         </div>
-        <p>Esqueceu a sua senha?</p>
-      </div>
-      <button class="login-button">Entrar</button>
-      <div class="custom-divider"></div>
-      <p>Ou use essas outras opções:</p>
-      <div class="icon-container">
-        <div class="icon"></div>
-        <div class="icon"></div>
+        <RouterLink class="warning-link" to="/login"
+          >Esqueceu sua Senha?</RouterLink
+        >
       </div>
     </div>
   </div>
@@ -39,56 +76,79 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
+  import Button from '../components/Button.vue'
 
   export default defineComponent({
     name: 'Login',
+    components: { Button },
+    data() {
+      return {
+        loginValue: '',
+        passwordValue: '',
+      }
+    },
   })
 </script>
 
 <style>
-  p {
-    margin: 0;
-  }
   :root {
     background-color: var(--background-color);
-    color: var(--white);
+  }
+  .container {
+    display: flex;
+    margin: auto;
+
+    width: 70vw;
+    height: 79vh;
+
+    background-color: var(--white);
+    border-radius: 1em;
   }
 
-  .acesso-container {
-    width: 80vw;
-    height: 70vh;
-    margin: 2% auto;
-    display: flex;
+  .left-block {
+    width: 50%;
+
+    background-color: var(--terciary-color);
+    border-radius: 1em;
   }
-  .area-cadastro{
-    background-color: var(--primary-color);
+  .title {
+    color: var(--white);
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: var(--my-large);
+
+    margin-top: 2em;
+    margin-bottom: 4.1em;
+
+    padding: 0pc 0.1em;
+  }
+
+  .subtext {
+    color: var(--white);
+    opacity: 0.6;
+
+    margin-top: 0.5em;
+  }
+  .right-block {
     width: 100%;
-    .button{
-      color:white;
-    }
-  }
-  .area-login {
+    margin-left: 2em;
+    margin-top: 4em;
+
     background-color: var(--white);
-    width: 100%;
+    border-radius: 1em;
+
+    text-align: left;
   }
-  .subcontainer-flex {
-    display: flex;
+
+  .subtitle {
+    color: var(--terciary-color);
+    font-size: xx-large;
   }
-  .custom-divider {
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    margin: 20px 0;
+
+  .input {
+    margin-bottom: 1em;
   }
-  .icon-container{
-    display: flex;
-    align-items: center;
-  }
-  .icon{
-    width: 2pc;
-    height: 2pc;
-    background-color: var(--danger);
-    border-radius: 50%;
-    margin-left: 5%;
+
+  .warning-link {
+    color: var(--danger);
   }
 </style>

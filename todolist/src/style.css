@@ -1,3 +1,4 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +18,7 @@
   --light-gray: #AFB7B8;
   --dark-gray: #606465;
   --danger: #E92525;
+  --my-large: 2.7em;
 }
 
 body {
