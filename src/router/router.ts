@@ -2,6 +2,7 @@ import { createRouter, createMemoryHistory } from "vue-router";
 
 import Login from "../views/Login.vue";
 import About from "../views/About.vue";
+import Cadastro from "../views/Cadastro.vue";
 
 const routes = [
     {
@@ -11,6 +12,10 @@ const routes = [
     {
         path: '/about',
         component: About,
+    },
+    {
+        path: "/cadastro",
+        component: Cadastro
     }
 ]
 
