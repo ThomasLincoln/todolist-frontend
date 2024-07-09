@@ -1,85 +1,87 @@
 <template>
-  <div class="container">
-    <div class="left-block">
-      <h1 class="title">Bem-vindo!</h1>
-      <RouterLink to="/login">
-        <Button label="Entrar" size=2 />
-      </RouterLink>
-      <div class="subtext">
-        <p>Já possui uma conta?</p>
-      </div>
-    </div>
-    <div class="right-block">
-      <h2 class="subtitle">Cadastrar-se</h2>
+  <div class="wrapper-cadastro">
 
-      <div class="input">
-        <label for="nome" class="block mb-2 text-sm font-medium"
-          style="color: var(--terciary-color); margin-left: 1em">Nome de usuário</label>
-        <input type="text" id="nome" v-model="nomeValue" placeholder="Digite seu nome"
-          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
+    <div class="cadastro-container">
+      <div class="left-block">
+        <h1 class="title">Bem-vindo!</h1>
+        <RouterLink to="/login">
+          <Button label="Entrar" size=2 />
+        </RouterLink>
+        <div class="subtext">
+          <p>Já possui uma conta?</p>
+        </div>
+      </div>
+      <div class="right-block">
+        <h2 class="subtitle">Cadastrar-se</h2>
+
+        <div class="input">
+          <label for="nome" class="block mb-2 text-sm font-medium"
+            style="color: var(--terciary-color); margin-left: 1em">Nome de usuário</label>
+          <input type="text" id="nome" v-model="nomeValue" placeholder="Digite seu nome"
+            class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
             background: none;
             border-color: var(--terciary-color);
             width: 95%;
-          " />
-      </div>
+            " />
+        </div>
 
-      <div class="input">
-        <label for="login" class="block mb-2 text-sm font-medium"
-          style="color: var(--terciary-color); margin-left: 1em">Nome de usuário</label>
-        <input type="text" id="login" v-model="loginValue" placeholder="Digite seu nome de usuário"
-          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
+        <div class="input">
+          <label for="login" class="block mb-2 text-sm font-medium"
+            style="color: var(--terciary-color); margin-left: 1em">Nome de usuário</label>
+          <input type="text" id="login" v-model="loginValue" placeholder="Digite seu nome de usuário"
+            class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
             background: none;
             border-color: var(--terciary-color);
             width: 95%;
-          " />
-      </div>
+            " />
+        </div>
 
-      
-      <div class="input">
-        <label for="email" class="block mb-2 text-sm font-medium"
-          style="color: var(--terciary-color); margin-left: 1em">Email</label>
-        <input type="email" id="login" v-model="emailValue" placeholder="Digite seu email"
-          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
+
+        <div class="input">
+          <label for="email" class="block mb-2 text-sm font-medium"
+            style="color: var(--terciary-color); margin-left: 1em">Email</label>
+          <input type="email" id="login" v-model="emailValue" placeholder="Digite seu email"
+            class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
             background: none;
             border-color: var(--terciary-color);
             width: 95%;
-          " />
-      </div>
+            " />
+        </div>
 
-      <div class="input">
-        <label for="senha" class="block mb-2 text-sm font-medium"
-          style="color: var(--terciary-color); margin-left: 1em">Senha</label>
-        <input type="password" id="senha" v-model="passwordValue" placeholder="Digite sua senha"
-          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
+        <div class="input">
+          <label for="senha" class="block mb-2 text-sm font-medium"
+            style="color: var(--terciary-color); margin-left: 1em">Senha</label>
+          <input type="password" id="senha" v-model="passwordValue" placeholder="Digite sua senha"
+            class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
             background: none;
             border-color: var(--terciary-color);
             width: 95%;
-          " />
-      </div>
+            " />
+        </div>
 
-      <div class="input">
-        <label for="senha" class="block mb-2 text-sm font-medium"
-          style="color: var(--terciary-color); margin-left: 1em">Senha</label>
-        <input type="password" id="senha" v-model="passwordConfirmationValue" placeholder="Digite sua senha novamente"
-          class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
+        <div class="input">
+          <label for="senha" class="block mb-2 text-sm font-medium"
+            style="color: var(--terciary-color); margin-left: 1em">Senha</label>
+          <input type="password" id="senha" v-model="passwordConfirmationValue" placeholder="Digite sua senha novamente"
+            class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" style="
             background: none;
             border-color: var(--terciary-color);
             width: 95%;
-          " />
-      </div>
+            " />
+        </div>
 
-      <Button label="Cadastrar-se" size=22 />
-      <hr class="border-gray-300 my-4" style="border-color: var(--dark-gray);
+        <Button label="Cadastrar-se" size=22 />
+        <hr class="border-gray-300 my-4" style="border-color: var(--dark-gray);
         width: 50%;
         margin-top: 1%;
         margin-left: auto;
         margin-right: auto;">
-      <p style="text-align: center;">ou tente essas outras formas:</p>
-      <div class="icons-container">
-        <img src="../assets/images/google-icon.png" alt="google icon" 
-          style="border-radius: 50%;
+        <p style="text-align: center;">ou tente essas outras formas:</p>
+        <div class="icons-container">
+          <img src="../assets/images/google-icon.png" alt="google icon" style="border-radius: 50%;
           background-color: white">
-        <img src="../assets/images/x.png" alt="x icon">
+          <img src="../assets/images/x.png" alt="x icon">
+        </div>
       </div>
     </div>
   </div>
@@ -110,7 +112,11 @@ export default defineComponent({
   background-color: var(--background-color);
 }
 
-.container {
+.wrapper-cadastro {
+  padding: 2rem;
+}
+
+.cadastro-container {
   display: flex;
   margin: auto;
 
@@ -128,7 +134,7 @@ export default defineComponent({
   border-radius: 1em;
 }
 
-.title {
+.left-block .title {
   color: var(--white);
   font-family: 'Julius Sans One', sans-serif;
   font-size: var(--my-large);
@@ -157,7 +163,7 @@ export default defineComponent({
   text-align: left;
 }
 
-.subtitle {
+.cadastro-container .subtitle {
   color: var(--terciary-color);
   font-size: xx-large;
 }
@@ -176,7 +182,7 @@ export default defineComponent({
   margin-top: 1em;
 }
 
-.icons-container img{
+.icons-container img {
   width: 3em;
   margin-right: 1.5em;
 }

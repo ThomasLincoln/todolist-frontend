@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :style="buttonStyle">{{ label }}</button>
+    <button class="init-button" :style="buttonStyle">{{ label }}</button>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style>
-button {
+.init-button {
   color: var(--white);
   background-color: var(--secondary-color);
   box-shadow: 0px 0px 10px var(--white);

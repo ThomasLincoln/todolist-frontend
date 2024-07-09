@@ -17,7 +17,7 @@
   const route = useRoute()
 
   const showNavigation = computed(() => {
-    const hiddenRoutes = ['/login' , '/cadastro']
+    const hiddenRoutes = ['/login' , '/cadastro', '/profile']
     return !hiddenRoutes.includes(route.path)
   })
 </script>

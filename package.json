@@ -1,7 +1,7 @@
 {
   "name": "todolist",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,8 @@
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.4",
+    "tw-elements": "^2.0.0",
     "vue": "^3.4.29",
     "vue-router": "^4.4.0"
   },

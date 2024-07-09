@@ -3,6 +3,7 @@ import { createRouter, createMemoryHistory } from "vue-router";
 import Login from "../views/Login.vue";
 import About from "../views/About.vue";
 import Cadastro from "../views/Cadastro.vue";
+import Profile from "../views/Profile.vue";
 
 const routes = [
     {
@@ -16,6 +17,10 @@ const routes = [
     {
         path: "/cadastro",
         component: Cadastro
+    },
+    {
+        path: "/profile",
+        component: Profile
     }
 ]
 
