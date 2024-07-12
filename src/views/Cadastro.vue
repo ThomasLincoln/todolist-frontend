@@ -70,7 +70,7 @@
             " />
         </div>
 
-        <Button label="Cadastrar-se" size=22 />
+        <Button label="Cadastrar-se" size=22 @click="registerUser" />
         <hr class="border-gray-300 my-4" style="border-color: var(--dark-gray);
         width: 50%;
         margin-top: 1%;
@@ -91,6 +91,7 @@
 import { defineComponent } from 'vue'
 import Button from '../components/Button.vue'
 import Divider from '../components/Divider.vue'
+import axios from 'axios'
 
 export default defineComponent({
   name: 'Login',
@@ -102,6 +103,34 @@ export default defineComponent({
       emailValue: '',
       passwordValue: '',
       passwordConfirmationValue: '',
+    }
+  },
+
+  methods: {
+    async registerUser() {
+      if (this.passwordValue !== this.passwordConfirmationValue) {
+        alert('As senhas não coincidem');
+        return;
+      }
+
+      try {
+        const response = await axios.post('http://localhost:8080/user/auth/signup', {
+          name: this.nomeValue,
+          username: this.loginValue,
+          email: this.emailValue,
+          role: ["ROLE_USER"],
+          password: this.passwordValue,
+        });
+        if (response.status === 200) {
+          alert('Usuário cadastrado com sucesso');
+          this.$router.push('/login');
+        } else {
+          alert('Erro ao cadastrar usuário');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Erro ao cadastrar usuário');
+      }
     }
   },
 })
