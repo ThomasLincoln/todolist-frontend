@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <nav v-if="showNavigation">
-      <RouterLink to="/login">Go to Home</RouterLink>
+    <nav v-if="showNavigation" style="display: flex; flex-direction: column;">
+      <RouterLink to="/home">Go to Home</RouterLink>
       <RouterLink to="/about">Go to About</RouterLink>
+      <RouterLink to="/login">Logar</RouterLink>
+      <RouterLink to="/profile">Perfil</RouterLink>
+      <RouterLink to="/contato">Contato</RouterLink>
     </nav>
     <main>
       <RouterView />
