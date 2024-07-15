@@ -41,7 +41,7 @@
           <RouterLink class="warning-link" to="/login">Esqueceu sua Senha?</RouterLink>
         </div>
         <RouterLink to="/profile">
-          <Button label="Entrar" size=23.5 />
+          <Button label="Entrar" size=23.5 @click="login" />
         </RouterLink>
         <hr class="border-gray-300 my-4" style="border-color: var(--dark-gray);
         width: 50%;
@@ -61,6 +61,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import axios from 'axios';
 import Button from '../components/Button.vue'
 import Divider from '../components/Divider.vue'
 
@@ -73,6 +74,26 @@ export default defineComponent({
       passwordValue: '',
     }
   },
+  methods: {
+    async login() {
+      try {
+        const response = await axios.post("http://localhost:8080/user/auth/signin", {
+          username: this.loginValue,
+          password: this.passwordValue
+        });
+        if (response.status === 200) {
+          // Armazenar o token recebido e redirecionar para a página de perfil
+          localStorage.setItem("token", response.data.token);
+          this.$router.push("/profile");
+        } else {
+          alert("Login falhou, por favor verifique suas credenciais");
+        }
+      } catch (error) {
+        console.log("Errou durante o login: ", error);
+        alert('Ocorreu um erro durante o login, por favor tente novamente mais tarde');
+      }
+    }
+  }
 })
 
 </script>
