@@ -1,28 +1,55 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const username = ref("");
 const password = ref("");
+const router = useRouter();
+
+// =========== dev ============
+const validUsers = [
+  {userame: "admin", password: "admin123"},
+  {username: "user", password: "user123"}
+]
 
 const login = async () => {
-  const response = await fetch("", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username: username.value,
-      password: password.value,
-    }),
-  });
+  // Simula uma requisição com delay para imitar uma chamada de API
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
-  const data = await response.json();
-  if (response.status === 200) {
-    console.log("Login realizado com sucesso", data);
+  // Verifica se as credenciais inseridas são válidas
+  const user = validUsers.find(
+    (user) => user.username === username.value && user.password === password.value
+  );
+
+  if (user) {
+    console.log("Login realizado com sucesso");
+    router.push({ name: 'Perfil'})
   } else {
-    console.log("Login falhou: ", data)
+    console.log("Login falhou: Usuário ou senha incorretos");
   }
-}
+};
+
+
+// ========= prod =============
+// const login = async () => {
+//   const response = await fetch("", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       username: username.value,
+//       password: password.value,
+//     }),
+//   });
+
+//   const data = await response.json();
+//   if (response.status === 200) {
+//     console.log("Login realizado com sucesso", data);
+//   } else {
+//     console.log("Login falhou: ", data)
+//   }
+// }
 </script>
 
 <template>
